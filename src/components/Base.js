@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Base = ({ addBase, pizza }) => {
-    const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
+    const bases = ["Classic", "Thin & Crispy", "Smeekeh"];
 
     return (
         <div className="base container">
-            <h3>Step 1: Choose Your Base</h3>
+            <h3>Step 1: Choose Your 3ajeeneh</h3>
             <ul>
                 {bases.map((base) => {
                     let spanClass = pizza.base === base ? "active" : "";

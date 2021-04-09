@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const Toppings = ({ addTopping, pizza }) => {
     let toppings = [
-        "mushrooms",
-        "peppers",
-        "onions",
-        "olives",
-        "extra cheese",
-        "tomatoes",
+        "champignons",
+        "basal",
+        "zaytoon",
+        "jibneh extra",
+        "jambon",
+        "pepperoni",
     ];
 
     return (

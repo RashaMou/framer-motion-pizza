@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <div className="home container">
-            <h2>Welcome to Pizza Joint</h2>
+            <h2>Welcome to Pizza Barbar</h2>
             <Link to="/base">
-                <button>Create Your Pizza</button>
+                <button>Shoo baddak 3laya?</button>
             </Link>
         </div>
     );

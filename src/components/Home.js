@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <motion.div
+            className="home container"
+            // default type: tween
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="home container"
+            transition={{ delay: 1.5, duration: 1.5 }}
         >
             <h2>Welcome to Pizza Barbar</h2>
             <Link to="/base">

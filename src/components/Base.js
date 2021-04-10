@@ -2,15 +2,45 @@ import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
 
+// parent elements that have variants propagate their variants to motion enabled children elements. It's not inheriting the properties, just the string values of initial (hidden) and animate (visible)
+
+const containerVariants = {
+    hidden: {
+        opacity: 0,
+        x: "100vw",
+    },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            delay: 0.5,
+        },
+    },
+};
+
+const nextVariants = {
+    hidden: {
+        x: "-100vw",
+    },
+    visible: {
+        x: 0,
+        transition: {
+            type: "spring",
+            stiffness: 120,
+        },
+    },
+};
+
 const Base = ({ addBase, pizza }) => {
     const bases = ["Classic", "Thin & Crispy", "Smeekeh"];
 
     return (
         <motion.div
             className="base container"
-            initial={{ x: "100vw" }}
-            animate={{ x: 0 }}
-            transition={{ type: "spring", delay: 0.5 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
         >
             <h3>Step 1: Choose Your 3ajeeneh</h3>
             <ul>
@@ -34,12 +64,7 @@ const Base = ({ addBase, pizza }) => {
             </ul>
 
             {pizza.base && (
-                <motion.div
-                    className="next"
-                    initial={{ x: "-100vh" }}
-                    animate={{ x: 0 }}
-                    transition={{ type: "spring", stiffness: 120 }}
-                >
+                <motion.div className="next" variants={nextVariants}>
                     <Link to="/toppings">
                         <motion.button
                             whileHover={{

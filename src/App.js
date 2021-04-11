@@ -1,5 +1,6 @@
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import Base from "./components/Base";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -7,6 +8,7 @@ import Order from "./components/Order";
 import Toppings from "./components/Toppings";
 
 function App() {
+    const location = useLocation();
     const [pizza, setPizza] = useState({ base: "", toppings: [] });
 
     const addBase = (base) => {
@@ -26,20 +28,23 @@ function App() {
     return (
         <>
             <Header />
-            <Switch>
-                <Route path="/base">
-                    <Base addBase={addBase} pizza={pizza} />
-                </Route>
-                <Route path="/toppings">
-                    <Toppings addTopping={addTopping} pizza={pizza} />
-                </Route>
-                <Route path="/order">
-                    <Order pizza={pizza} />
-                </Route>
-                <Route path="/">
-                    <Home />
-                </Route>
-            </Switch>
+            <AnimatePresence exitBeforeEnter>
+                {/* useLocation hook allows AnimatePresence to know when routes are changing. To do this we add the location object to the Switch component */}
+                <Switch location={location} key={location.key}>
+                    <Route path="/base">
+                        <Base addBase={addBase} pizza={pizza} />
+                    </Route>
+                    <Route path="/toppings">
+                        <Toppings addTopping={addTopping} pizza={pizza} />
+                    </Route>
+                    <Route path="/order">
+                        <Order pizza={pizza} />
+                    </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                </Switch>
+            </AnimatePresence>
         </>
     );
 }

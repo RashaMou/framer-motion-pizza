@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const svgVariants = {
     initial: { rotate: -180 },
@@ -50,15 +51,17 @@ const Header = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <motion.div
-                className="title"
-                // default type: spring
-                initial={{ y: -250 }}
-                animate={{ y: -10 }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
-            >
-                <h1>Pizza Barbar</h1>
-            </motion.div>
+            <Link to="/">
+                <motion.div
+                    className="title"
+                    // default type: spring
+                    initial={{ y: -250 }}
+                    animate={{ y: -10 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
+                >
+                    <h1>Pizza Barbar</h1>
+                </motion.div>
+            </Link>
         </header>
     );
 };

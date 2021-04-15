@@ -27,11 +27,15 @@ function App() {
         setPizza({ ...pizza, toppings: newToppings });
     };
 
+    // onExitComplete: every time an exit animation completes, meaning every time there is a route change, run this function
     return (
         <>
             <Header />
             <Modal showModal={showModal} setShowModal={setShowModal} />
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence
+                exitBeforeEnter
+                onExitComplete={() => setShowModal(false)}
+            >
                 {/* useLocation hook allows AnimatePresence to know when routes are changing. To do this we add the location object to the Switch component */}
                 <Switch location={location} key={location.key}>
                     <Route path="/base">

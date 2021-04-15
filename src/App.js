@@ -4,12 +4,14 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import Base from "./components/Base";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Modal from "./components/Modal";
 import Order from "./components/Order";
 import Toppings from "./components/Toppings";
 
 function App() {
     const location = useLocation();
     const [pizza, setPizza] = useState({ base: "", toppings: [] });
+    const [showModal, setShowModal] = useState(false);
 
     const addBase = (base) => {
         setPizza({ ...pizza, base });
@@ -28,6 +30,7 @@ function App() {
     return (
         <>
             <Header />
+            <Modal showModal={showModal} setShowModal={setShowModal} />
             <AnimatePresence exitBeforeEnter>
                 {/* useLocation hook allows AnimatePresence to know when routes are changing. To do this we add the location object to the Switch component */}
                 <Switch location={location} key={location.key}>
@@ -38,7 +41,7 @@ function App() {
                         <Toppings addTopping={addTopping} pizza={pizza} />
                     </Route>
                     <Route path="/order">
-                        <Order pizza={pizza} />
+                        <Order pizza={pizza} setShowModal={setShowModal} />
                     </Route>
                     <Route path="/">
                         <Home />

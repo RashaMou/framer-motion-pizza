@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,6 +39,7 @@ const Home = () => {
                     Shoo baddak 3laya?
                 </motion.button>
             </Link>
+            <Loader />
         </motion.div>
     );
 };

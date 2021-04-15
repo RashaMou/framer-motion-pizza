@@ -39,6 +39,7 @@ const Loader = () => {
             <div className="cycle" onClick={() => cycleAnimation()}>
                 Cycle Loader
             </div>
+            <p>(Try dragging the logo)</p>
         </>
     );
 };

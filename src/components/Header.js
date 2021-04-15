@@ -21,7 +21,11 @@ const pathVariants = {
 const Header = () => {
     return (
         <header>
-            <div className="logo">
+            <motion.div
+                className="logo"
+                drag
+                //dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+            >
                 <motion.svg
                     className="pizza-svg"
                     xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +49,7 @@ const Header = () => {
                         animate="visible"
                     />
                 </motion.svg>
-            </div>
+            </motion.div>
             <motion.div
                 className="title"
                 // default type: spring

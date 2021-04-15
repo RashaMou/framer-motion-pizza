@@ -158,6 +158,9 @@ li span.active::before {
     background: #fff;
 }
 
+.cycle {
+    margin-bottom: 20px;
+}
 .cycle:hover {
     cursor: pointer;
 }

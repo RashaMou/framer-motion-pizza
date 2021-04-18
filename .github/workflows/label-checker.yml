@@ -1,0 +1,10 @@
+name: Label checker for pull requests
+uses: agilepathway/label-checker@v1.0.9
+on: [pull_request]
+jobs:
+    check_labels:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: docker://agilepathway/pull-request-label-checker:latest
+              with:
+                  one_of: include-in-beta

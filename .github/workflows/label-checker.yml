@@ -1,5 +1,4 @@
 name: Label checker for pull requests
-uses: agilepathway/label-checker@v1.0.9
 on: [pull_request]
 jobs:
     check_labels:

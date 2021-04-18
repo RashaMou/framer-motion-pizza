@@ -37,7 +37,7 @@ const Loader = () => {
                 animate={animation}
             ></motion.div>
             <div className="cycle" onClick={() => cycleAnimation()}>
-                Cycle Loader
+                Cycle Loader (click me)
             </div>
             <p>(Try dragging the logo)</p>
         </>
